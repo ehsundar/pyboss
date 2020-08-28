@@ -1,0 +1,18 @@
+{
+  "like_svc": {
+    "host": "like.twitter.com",
+    "port": 2123,
+    "timeout": 12.34,
+    "enabled": true
+  },
+  "db": [
+    {
+      "host": "1.com",
+      "port": 1234
+    },
+    {
+      "host": "2.com",
+      "port": 4321
+    }
+  ]
+}
