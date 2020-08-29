@@ -1,4 +1,4 @@
-# pyboss
+# PyBoss
 
 Manage your app's configurations with PyBoss! you can define several sources for aquiring configurations:
 
@@ -12,8 +12,6 @@ Manage your app's configurations with PyBoss! you can define several sources for
 pass all of your sources to `Boss` then he'll take care of them.
 
 TODO:
-
-* merge sources
 * implement sources
 * CLI for source check
 * reload and interval

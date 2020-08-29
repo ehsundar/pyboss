@@ -15,5 +15,10 @@ class Boss:
         return self._tree[item]
 
     def _load_config(self):
-        loaded_value = self._sources[0].load()
+        loaded_value = {}
+
+        for src in self._sources:
+            src_value = src.load()
+            loaded_value = src.merger.merge(loaded_value, src_value)
+
         self._tree = DictValue(loaded_value)
