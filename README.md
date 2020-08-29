@@ -14,11 +14,8 @@ pass all of your sources to `Boss` then he'll take care of them.
 *you can partially overwrite config value by defining sources*
 
 TODO:
+* mutual lock for read and write
 * CLI for source check
-* reload and interval
-* lock for read and write
-* disable source from env
-* source fail safety
 * unit tests
 
 ## Quick Start
