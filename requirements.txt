@@ -1,0 +1,8 @@
+attrs==20.1.0
+jsonmerge==1.7.0
+jsonschema==3.2.0
+pymongo==3.11.0
+pyrsistent==0.16.0
+PyYAML==5.3.1
+redis==3.5.3
+six==1.15.0
