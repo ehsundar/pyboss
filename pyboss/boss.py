@@ -15,4 +15,5 @@ class Boss:
         return self._tree[item]
 
     def _load_config(self):
-        self._tree = self._sources[0].value_tree()
+        loaded_value = self._sources[0].load()
+        self._tree = DictValue(loaded_value)

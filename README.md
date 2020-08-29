@@ -13,9 +13,8 @@ pass all of your sources to `Boss` then he'll take care of them.
 
 TODO:
 
-* make packages
-* implement sources
 * merge sources
+* implement sources
 * CLI for source check
 * reload and interval
 * lock for read and write

@@ -1,6 +1,6 @@
-from pyboss.value import DictValue
+from typing import Dict
 
 
 class BaseSource:
-    def value_tree(self) -> DictValue:
+    def load(self) -> Dict:
         ...
