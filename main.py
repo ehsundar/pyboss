@@ -1,4 +1,5 @@
-from pyboss.boss import Boss, JsonFileSource
+from pyboss.boss import Boss
+from pyboss.source.json_file import JsonFileSource
 
 json_source = JsonFileSource('test_data/dict_and_array.json')
 
