@@ -62,7 +62,7 @@ print(b.like_svc.host)
 print(b.db[1].host)
 ```
 
-parameter `refresh_interval` indicated interval of reload procedure. default to `0` witch means no 
+parameter `refresh_interval` indicates interval of reload procedure. default to `0` witch means no 
 reload. this feature is intended to be used for having live configs. any failure in further reloads
 (except first time), will **not** cause your application exit. 
 
@@ -100,7 +100,14 @@ the `key` and `_id` will be deleted and rest of the fields will merge with previ
 ```
 
 
-## Document schema for Redis
+## Value schema for Redis
 
 `RedisSource(rdb=redis, config_key='Like_SVC')` the `config_key` parameter tell `RedisSource` witch key to get.
 other behaviours are just like a json file
+
+
+## MergeStrategy for sources
+
+Strategy for merge result of every source, on top of previous ones, can be specified by JsonSchema and some options.
+a `Merger` instance might pass to `XSource` constructor. for further information, please read 
+[this](https://github.com/avian2/jsonmerge#merge-strategies) section.
