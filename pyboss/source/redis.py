@@ -1,4 +1,5 @@
 import json
+import os
 from typing import Dict
 
 from jsonmerge import Merger
@@ -14,6 +15,9 @@ class RedisSource(BaseSource):
         self.config_key: str = config_key
 
     def load(self) -> Dict:
+        if 'PYBOSS_NO_MONGODB' in os.environ.keys():
+            return {}
+
         cfg = self._rdb.get(self.config_key)
         if not cfg:
             return {}
