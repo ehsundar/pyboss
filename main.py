@@ -1,3 +1,5 @@
+import time
+
 from pymongo import MongoClient
 from redis import Redis
 
@@ -21,7 +23,9 @@ b = Boss([
     redis_source,
     mongo_source,
     env_source,
-])
+], refresh_interval=60)
 
 print(b.like_svc.port)
 print(b.db[1].host)
+
+time.sleep(200)
