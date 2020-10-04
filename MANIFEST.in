@@ -1,0 +1,4 @@
+include *.py
+include *.txt
+recursive-include test_data *.json
+recursive-include test_data *.yml
