@@ -1,10 +1,11 @@
+from pip._internal.network.session import PipSession
 from setuptools import setup
 from pip._internal.req import parse_requirements
 
 
 def load_requirements(file_name):
-    reqs = parse_requirements(file_name)
-    return [str(ir.req) for ir in reqs]
+    reqs = parse_requirements(file_name, session=PipSession())
+    return [str(ir.requirement) for ir in reqs]
 
 
 setup(
