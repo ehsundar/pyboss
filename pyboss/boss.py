@@ -17,6 +17,9 @@ class Boss:
     def __getattr__(self, item):
         return self._tree[item]
 
+    def __getitem__(self, item):
+        return self._tree[item]
+
     def _load_config(self):
         if self.refresh_interval > 0:
             def fn():
