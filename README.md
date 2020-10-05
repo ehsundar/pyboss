@@ -80,21 +80,16 @@ so that you don't need to change any line of code or rebuild. same behaviour for
     "_id": {
         "$oid": "5f4a2856133f34383e3b1000"
     },
-    "key": "like_svc",
-    "port": 4444
+    "_version": 1,
+    "service_name": "like_svc",
+    "port": 4444,
+    "database": [
+        {"driver": "mongodb"}
+    ]
 }
 ```
 
-the field `key` is mandatory. this indicates top level entry name for this document, as a partial config.
-the `key` and `_id` will be deleted and rest of the fields will merge with previous source output:
-
-```json
-{
-  "like_svc": {
-    "port": 4444
-  }
-}
-```
+the field `_version` effects which document to load. the highest version is loaded. the type must be `int32`. 
 
 
 ## Value schema for Redis
@@ -102,6 +97,12 @@ the `key` and `_id` will be deleted and rest of the fields will merge with previ
 `RedisSource(rdb=redis, config_key='Like_SVC')` the `config_key` parameter tell `RedisSource` witch key to get.
 other behaviours are just like a json file
 
+
+## Value schema for env
+
+this source is absolutely **case sensitive**. so `boss.lev1.lev2` corresponds to `lev1__lev2` in environment.
+note that all the configs overridden by env are typed as `str`. you're responsible to type cast. for technical reasons
+we're not able to detect type at the moment. 
 
 ## MergeStrategy for sources
 

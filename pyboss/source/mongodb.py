@@ -1,4 +1,3 @@
-import copy
 import os
 from typing import Dict
 
@@ -17,11 +16,10 @@ class MongodbSource(BaseSource):
         if 'PYBOSS_NO_MONGODB' in os.environ.keys():
             return {}
 
-        result = {}
-        for doc in self.collection.find({'key': {'$exists': True}}):
-            cp = copy.deepcopy(doc)
-            del cp['_id']
-            del cp['key']
-            result[doc['key']] = cp
-
-        return result
+        bound_query = {'$query':{'_version': {'$exists': True}}, '$orderby': {'_version': -1}}
+        latest_version = self.collection.find_one(bound_query)
+        if latest_version:
+            del latest_version['_id']
+            return latest_version
+        else:
+            return {}
