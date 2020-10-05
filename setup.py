@@ -8,7 +8,7 @@ def load_requirements(file_name):
 
 setup(
     name='pyboss',
-    version='0.0.3',
+    version='0.0.5',
     packages=['pyboss', 'pyboss.source'],
     install_requires=load_requirements('requirements.txt'),
     url='https://github.com/ehsundar/pyboss',
