@@ -1,11 +1,9 @@
-from pip._internal.network.session import PipSession
 from setuptools import setup
-from pip._internal.req import parse_requirements
 
 
 def load_requirements(file_name):
-    reqs = parse_requirements(file_name, session=PipSession())
-    return [str(ir.requirement) for ir in reqs]
+    with open(file_name, 'r') as f:
+        return list(f.readlines())
 
 
 setup(
