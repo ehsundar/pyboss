@@ -17,7 +17,7 @@ class ListValue:
         return self._list[item]
 
     def __iter__(self):
-        return self._list
+        return self._list.__iter__()
 
     def __len__(self):
         return len(self._list)
@@ -40,3 +40,18 @@ class DictValue:
 
     def __getitem__(self, item):
         return self._dict.get(item)
+
+    def keys(self):
+        return self._dict.keys()
+
+    def values(self):
+        return self._dict.values()
+
+    def items(self):
+        return self._dict.items()
+
+    def __iter__(self):
+        return iter(self._dict)
+
+    def __contains__(self, item):
+        return item in self._dict
